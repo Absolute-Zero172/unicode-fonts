@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Unicode Fonts</string>
+    <string name="gothic">𝔊𝔬𝔱𝔥𝔦𝔠</string>
+    <string name="gothic_bold">𝕲𝖔𝖙𝖍𝖎𝖈 𝕭𝖔𝖑𝖉</string>
+    <string name="cursive">𝒞𝓊𝓇𝓈𝒾𝓋𝑒</string>
+    <string name="cursive_bold">𝓒𝓾𝓻𝓼𝓲𝓿𝓮 𝓑𝓸𝓵𝓭</string>
+    <string name="block">𝔹𝕝𝕠𝕔𝕜 𝕃𝕖𝕥𝕥𝕖𝕣𝕤</string>
+    <string name="upside_down">∩dsᴉpǝ poʍu</string>
+    <string name="circle">Ⓒⓘⓡⓒⓛⓔⓓ</string>
+    <string name="square">🅂🅀🅄🄰🅁🄴🄳</string>
+    <string name="squiggle">รợยเﻮﻮɭє</string>
+    <string name="monospace">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</string>
+    <string name="bold">𝗕𝗼𝗹𝗱</string>
+    <string name="italics">𝘐𝘵𝘢𝘭𝘪𝘤𝘴</string>
+    <string name="bold_italics">𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘𝙨</string>
+    <string name="strikethrough">S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶</string>
+    <string name="underline">U̲n̲d̲e̲r̲l̲i̲n̲e</string>
+    <string name="superscript">ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ</string>
+    <string name="subscript">Subscript</string>
+    <string name="spaces">A d d  S p a c e s</string>
+    <string name="capitals">CApiTalS</string>
+    <string name="uwu">UwU-Generator</string>
+    <string name="script_alternate">Superscript\\nAlternate</string>
+    <string name="add_letters">Aadd\\nLleetteerrss</string>
+    <string name="add_sparkles">✨Add Sparkles✨</string>
+    <string name="add_periods">Add. Periods.</string>
+</resources>
