@@ -286,19 +286,48 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <SeekBar
+                android:id="@+id/varianceSlider"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="273dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:max="5"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/varianceView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="16sp" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <SeekBar
+                android:id="@+id/numberSlider"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="276dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:max="9"
+                android:progress="1" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/numberView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="16sp" />
+        </TableRow>
+
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
