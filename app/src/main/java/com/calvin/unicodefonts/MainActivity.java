@@ -1,6 +1,8 @@
 package com.calvin.unicodefonts;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    public void click(View v) {
+        Log.d("clicked", v.getResources().getResourceName(v.getId()));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
