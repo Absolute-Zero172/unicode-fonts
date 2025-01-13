@@ -3,6 +3,7 @@ package com.calvin.unicodefonts;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
