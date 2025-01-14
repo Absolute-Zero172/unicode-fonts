@@ -15,6 +15,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    public int getVariance() {
+        return ((SeekBar)findViewById(R.id.varianceSlider)).getProgress();
+    }
+
+    public int getNumber() {
+        return ((SeekBar)findViewById(R.id.numberSlider)).getProgress();
+    }
+
     public void click(View v) {
         Log.d("clicked button", v.getResources().getResourceName(v.getId()));
 
@@ -22,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         String inputText = textEnter.getText().toString();
         String result;
 
+
+        // font checks
         if (v.getId() == R.id.bold) {
             result = Font.applyFont(inputText, getString(R.string.bold_font));
         }
@@ -74,6 +84,23 @@ public class MainActivity extends AppCompatActivity {
             result = Font.applyFont(inputText, getString(R.string.monospace_font));
         }
 
+        // algorithm string manipulation
+
+        else if (v.getId() == R.id.script_alternate) {
+            result = Font.scriptAlternate(inputText, getString(R.string.superscript_font), getString(R.string.subscript_font));
+        }
+        else if (v.getId() == R.id.spaces) {
+//            Log.d("spaces call", "n: " + getNumber() + "  v: " + getVariance());
+            result = Font.addSpaces(inputText, getNumber(), getVariance());
+        }
+        else if (v.getId() == R.id.periods) {
+            result = Font.addPeriods(inputText);
+        }
+        else if (v.getId() == R.id.sparkles) {
+            result = Font.addSparkles(inputText, getNumber(), getVariance());
+        }
+
+        // default
         else {
             result = "Button Not Yet Implemented";
         }

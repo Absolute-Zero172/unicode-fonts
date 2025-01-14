@@ -1,5 +1,8 @@
 package com.calvin.unicodefonts;
 
+import java.sql.PreparedStatement;
+import java.util.Random;
+
 public class Font {
     private static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -27,4 +30,94 @@ public class Font {
     }
 
 
+    public static String scriptAlternate(String inputString, String superscript, String subscript) {
+        int mode = 0;
+        String result = "";
+
+        for (int i = 0; i < inputString.length(); i ++) {
+            String currentLetter = inputString.substring(i, i+1);
+
+            if (mode == 0) result += applyFont(currentLetter, subscript);
+            else if (mode == 2) result += applyFont(currentLetter, superscript);
+            else result += currentLetter;
+
+            mode++;
+            if (mode > 3) mode = 0;
+        }
+
+        return result;
+    }
+
+
+    public static String addSpaces(String inputString, int number, int variance) {
+        String result = "";
+        Random r = new Random();
+
+        for (int i = 0; i < inputString.length(); i++) {
+            result += inputString.substring(i, i+1);
+
+            int spaceCount = number;
+            if (variance > 0) {
+                spaceCount += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
+                if (spaceCount < 0) spaceCount = 0;
+            }
+
+            for (int j = 0; j < spaceCount; j++) {
+                result += " ";
+            }
+        }
+
+        return result;
+    }
+
+    public static String addPeriods(String inputString) {
+        String result = "";
+
+        for (int i = 0; i < inputString.length(); i++) {
+            String current = inputString.substring(i, i+1);
+
+            if (current.equals(" ") && i != 0 && !inputString.substring(i-1, i).equals(" ")) {
+                result += ". ";
+            }
+            else if (!current.equals(" ") && i != 0 && inputString.substring(i-1, i).equals(" ")) {
+                result += current.toUpperCase();
+            }
+            else {
+                result += current;
+            }
+        }
+
+        return result + ".";
+    }
+
+    public static String addSparkles(String inputString, int number, int variance) {
+        Random r = new Random();
+
+        String sparkle = "✨";
+
+        String result = "";
+
+        int count = number;
+        if (variance > 0) {
+            count += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
+            if (count < 0) count = 0;
+        }
+
+        for (int i = 0; i < count; i ++) {
+            result += sparkle;
+        }
+        result += " " + inputString + " ";
+
+        count = number;
+        if (variance > 0) {
+            count += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
+            if (count < 0) count = 0;
+        }
+
+        for (int i = 0; i < count; i ++) {
+            result += sparkle;
+        }
+
+        return result;
+    }
 }
