@@ -17,6 +17,68 @@ public class MainActivity extends AppCompatActivity {
 
     public void click(View v) {
         Log.d("clicked button", v.getResources().getResourceName(v.getId()));
+
+        EditText textEnter = (EditText)findViewById(R.id.textEnter);
+        String inputText = textEnter.getText().toString();
+        String result;
+
+        if (v.getId() == R.id.bold) {
+            result = Font.applyFont(inputText, getString(R.string.bold_font));
+        }
+        else if (v.getId() == R.id.italics) {
+            result = Font.applyFont(inputText, getString(R.string.italics_font));
+        }
+        else if (v.getId() == R.id.bold_italics) {
+            result = Font.applyFont(inputText, getString(R.string.bold_italics_font));
+        }
+        else if (v.getId() == R.id.gothic) {
+            result = Font.applyFont(inputText, getString(R.string.gothic_font));
+        }
+        else if (v.getId() == R.id.gothic_bold) {
+            result = Font.applyFont(inputText, getString(R.string.gothic_bold_font));
+        }
+        else if (v.getId() == R.id.strikethrough) {
+            result = Font.applyFont(inputText, getString(R.string.strikethrough_font));
+        }
+        else if (v.getId() == R.id.cursive) {
+            result = Font.applyFont(inputText, getString(R.string.cursive_font));
+        }
+        else if (v.getId() == R.id.cursive_bold) {
+            result = Font.applyFont(inputText, getString(R.string.cursive_bold_font));
+        }
+        else if (v.getId() == R.id.underline) {
+            result = Font.applyFont(inputText, getString(R.string.underline_font));
+        }
+        else if (v.getId() == R.id.block) {
+            result = Font.applyFont(inputText, getString(R.string.block_font));
+        }
+        else if (v.getId() == R.id.circle) {
+            result = Font.applyFont(inputText, getString(R.string.circle_font));
+        }
+        else if (v.getId() == R.id.square) {
+            result = Font.applyFont(inputText, getString(R.string.square_font));
+        }
+        else if (v.getId() == R.id.subscript) {
+            result = Font.applyFont(inputText, getString(R.string.subscript_font));
+        }
+        else if (v.getId() == R.id.superscript) {
+            result = Font.applyFont(inputText, getString(R.string.superscript_font));
+        }
+        else if (v.getId() == R.id.squiggle) {
+            result = Font.applyFont(inputText, getString(R.string.squiggle_font));
+        }
+        else if (v.getId() == R.id.upside_down) {
+            result = Font.applyFont(inputText, getString(R.string.upside_down_font));
+        }
+        else if (v.getId() == R.id.monospace) {
+            result = Font.applyFont(inputText, getString(R.string.monospace_font));
+        }
+
+        else {
+            result = "Button Not Yet Implemented";
+        }
+
+        textEnter.setText(result);
     }
 
     @Override
