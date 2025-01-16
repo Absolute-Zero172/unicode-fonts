@@ -18,6 +18,15 @@ public class Font {
 
     }
 
+    public static boolean isVowel(char letter) {
+        return (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' || letter == 'y'
+                || letter == 'A' || letter == 'E' || letter == 'I' || letter == 'O' || letter == 'U' || letter == 'Y');
+    }
+
+    public static boolean isVowel(String letter) {
+        return isVowel(letter.charAt(0));
+    }
+
     public static String applyFont(String inputString, String fontData) throws IndexOutOfBoundsException {
         int countPerCharacter = fontData.length() / 52;
 
@@ -122,5 +131,85 @@ public class Font {
         }
 
         return result;
+    }
+
+    public static String addLetters(String inputString, int number, int variance) {
+        String output = "";
+
+        for (int i = 0; i < inputString.length(); i++) {
+            String letter = inputString.substring(i, i + 1);
+
+            if (!letter.equals(" ")) {
+                for (int j = 0; j < getRandom(number, variance); j++) {
+                    if (j == 0) output += letter;
+                    else output += letter.toLowerCase();
+                }
+            } else {
+                output += letter;
+            }
+        }
+
+        return output;
+    }
+
+    public static String capitals(String inputString, int number, int variance) {
+        String output = "";
+
+        int idx = 0;
+        int counter = 0;
+        boolean capital = false;
+
+        while (idx < inputString.length()) {
+            if (counter == 0) {
+                counter = getRandom(number, variance);
+                capital = !capital;
+            }
+
+            String letter = inputString.substring(idx, idx + 1);
+
+            output += capital ? letter.toUpperCase() : letter.toLowerCase();
+            counter--;
+            idx++;
+
+        }
+
+        return output;
+    }
+
+    public static String uwu(String inputString) {
+        String output = inputString;
+
+        output = output.replace("r", "w");
+        output = output.replace("R", "W");
+
+
+        String finalOutput = output.substring(0, 1);
+
+        for (int i = 1; i < output.length(); i++) {
+            String letter = output.substring(i, i + 1);
+            String previous = output.substring(i - 1, i);
+
+            if (!isVowel(letter)) {
+                finalOutput += letter;
+                continue;
+            }
+            if (isVowel(previous)) {
+                finalOutput += letter;
+                continue;
+            }
+            if (previous.equals(" ")) {
+                finalOutput += letter;
+                continue;
+            }
+            if (previous.equalsIgnoreCase("w")) {
+                finalOutput += letter;
+                continue;
+            }
+
+            finalOutput += "w";
+            finalOutput += letter;
+        }
+
+        return finalOutput;
     }
 }

@@ -78,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
             result = Font.addPeriods(inputText);
         } else if (v.getId() == R.id.sparkles) {
             result = Font.addSparkles(inputText, getNumber(), getVariance());
+        } else if (v.getId() == R.id.letters) {
+            result = Font.addLetters(inputText, getNumber(), getVariance());
+        } else if (v.getId() == R.id.capitals) {
+            result = Font.capitals(inputText, getNumber(), getVariance());
+        } else if (v.getId() == R.id.uwu) {
+            result = Font.uwu(inputText);
         }
 
         // default
