@@ -6,24 +6,37 @@ import java.util.Random;
 public class Font {
     private static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    public static int getRandom(int number, int variance) {
+        int n = number;
+        if (variance == 0) return n;
+
+        Random r = new Random();
+        n += r.nextInt(variance + 1) * (r.nextBoolean() ? -1 : 1);
+        if (n < 0) n = 0;
+
+        return n;
+
+    }
+
     public static String applyFont(String inputString, String fontData) throws IndexOutOfBoundsException {
         int countPerCharacter = fontData.length() / 52;
 
-        if (countPerCharacter == 0) { throw new IndexOutOfBoundsException("font data at zero"); }
+        if (countPerCharacter == 0) {
+            throw new IndexOutOfBoundsException("font data at zero");
+        }
 
         String result = "";
 
         for (int i = 0; i < inputString.length(); i++) {
-          int letterIdx = LETTERS.indexOf(inputString.substring(i, i+1));
+            int letterIdx = LETTERS.indexOf(inputString.substring(i, i + 1));
 
-          if (letterIdx == -1 ) {
-              result += inputString.substring(i, i+1);
-          }
-          else {
-              String convertedLetter = fontData.substring(letterIdx*countPerCharacter, (letterIdx+1)*countPerCharacter);
+            if (letterIdx == -1) {
+                result += inputString.substring(i, i + 1);
+            } else {
+                String convertedLetter = fontData.substring(letterIdx * countPerCharacter, (letterIdx + 1) * countPerCharacter);
 
-              result += convertedLetter;
-          }
+                result += convertedLetter;
+            }
         }
 
         return result;
@@ -34,8 +47,8 @@ public class Font {
         int mode = 0;
         String result = "";
 
-        for (int i = 0; i < inputString.length(); i ++) {
-            String currentLetter = inputString.substring(i, i+1);
+        for (int i = 0; i < inputString.length(); i++) {
+            String currentLetter = inputString.substring(i, i + 1);
 
             if (mode == 0) result += applyFont(currentLetter, subscript);
             else if (mode == 2) result += applyFont(currentLetter, superscript);
@@ -54,13 +67,9 @@ public class Font {
         Random r = new Random();
 
         for (int i = 0; i < inputString.length(); i++) {
-            result += inputString.substring(i, i+1);
+            result += inputString.substring(i, i + 1);
 
-            int spaceCount = number;
-            if (variance > 0) {
-                spaceCount += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
-                if (spaceCount < 0) spaceCount = 0;
-            }
+            int spaceCount = getRandom(number, variance);
 
             for (int j = 0; j < spaceCount; j++) {
                 result += " ";
@@ -74,15 +83,13 @@ public class Font {
         String result = "";
 
         for (int i = 0; i < inputString.length(); i++) {
-            String current = inputString.substring(i, i+1);
+            String current = inputString.substring(i, i + 1);
 
-            if (current.equals(" ") && i != 0 && !inputString.substring(i-1, i).equals(" ")) {
+            if (current.equals(" ") && i != 0 && !inputString.substring(i - 1, i).equals(" ")) {
                 result += ". ";
-            }
-            else if (!current.equals(" ") && i != 0 && inputString.substring(i-1, i).equals(" ")) {
+            } else if (!current.equals(" ") && i != 0 && inputString.substring(i - 1, i).equals(" ")) {
                 result += current.toUpperCase();
-            }
-            else {
+            } else {
                 result += current;
             }
         }
@@ -97,24 +104,20 @@ public class Font {
 
         String result = "";
 
-        int count = number;
-        if (variance > 0) {
-            count += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
-            if (count < 0) count = 0;
-        }
+        int count = getRandom(number, variance);
 
-        for (int i = 0; i < count; i ++) {
+        for (int i = 0; i < count; i++) {
             result += sparkle;
         }
         result += " " + inputString + " ";
 
         count = number;
         if (variance > 0) {
-            count += r.nextInt(variance)*(r.nextBoolean()? -1 : 1);
+            count += r.nextInt(variance) * (r.nextBoolean() ? -1 : 1);
             if (count < 0) count = 0;
         }
 
-        for (int i = 0; i < count; i ++) {
+        for (int i = 0; i < count; i++) {
             result += sparkle;
         }
 

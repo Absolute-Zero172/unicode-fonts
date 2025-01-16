@@ -16,17 +16,17 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     public int getVariance() {
-        return ((SeekBar)findViewById(R.id.varianceSlider)).getProgress();
+        return ((SeekBar) findViewById(R.id.varianceSlider)).getProgress();
     }
 
     public int getNumber() {
-        return ((SeekBar)findViewById(R.id.numberSlider)).getProgress();
+        return ((SeekBar) findViewById(R.id.numberSlider)).getProgress();
     }
 
     public void click(View v) {
         Log.d("clicked button", v.getResources().getResourceName(v.getId()));
 
-        EditText textEnter = (EditText)findViewById(R.id.textEnter);
+        EditText textEnter = (EditText) findViewById(R.id.textEnter);
         String inputText = textEnter.getText().toString();
         String result;
 
@@ -34,53 +34,37 @@ public class MainActivity extends AppCompatActivity {
         // font checks
         if (v.getId() == R.id.bold) {
             result = Font.applyFont(inputText, getString(R.string.bold_font));
-        }
-        else if (v.getId() == R.id.italics) {
+        } else if (v.getId() == R.id.italics) {
             result = Font.applyFont(inputText, getString(R.string.italics_font));
-        }
-        else if (v.getId() == R.id.bold_italics) {
+        } else if (v.getId() == R.id.bold_italics) {
             result = Font.applyFont(inputText, getString(R.string.bold_italics_font));
-        }
-        else if (v.getId() == R.id.gothic) {
+        } else if (v.getId() == R.id.gothic) {
             result = Font.applyFont(inputText, getString(R.string.gothic_font));
-        }
-        else if (v.getId() == R.id.gothic_bold) {
+        } else if (v.getId() == R.id.gothic_bold) {
             result = Font.applyFont(inputText, getString(R.string.gothic_bold_font));
-        }
-        else if (v.getId() == R.id.strikethrough) {
+        } else if (v.getId() == R.id.strikethrough) {
             result = Font.applyFont(inputText, getString(R.string.strikethrough_font));
-        }
-        else if (v.getId() == R.id.cursive) {
+        } else if (v.getId() == R.id.cursive) {
             result = Font.applyFont(inputText, getString(R.string.cursive_font));
-        }
-        else if (v.getId() == R.id.cursive_bold) {
+        } else if (v.getId() == R.id.cursive_bold) {
             result = Font.applyFont(inputText, getString(R.string.cursive_bold_font));
-        }
-        else if (v.getId() == R.id.underline) {
+        } else if (v.getId() == R.id.underline) {
             result = Font.applyFont(inputText, getString(R.string.underline_font));
-        }
-        else if (v.getId() == R.id.block) {
+        } else if (v.getId() == R.id.block) {
             result = Font.applyFont(inputText, getString(R.string.block_font));
-        }
-        else if (v.getId() == R.id.circle) {
+        } else if (v.getId() == R.id.circle) {
             result = Font.applyFont(inputText, getString(R.string.circle_font));
-        }
-        else if (v.getId() == R.id.square) {
+        } else if (v.getId() == R.id.square) {
             result = Font.applyFont(inputText, getString(R.string.square_font));
-        }
-        else if (v.getId() == R.id.subscript) {
+        } else if (v.getId() == R.id.subscript) {
             result = Font.applyFont(inputText, getString(R.string.subscript_font));
-        }
-        else if (v.getId() == R.id.superscript) {
+        } else if (v.getId() == R.id.superscript) {
             result = Font.applyFont(inputText, getString(R.string.superscript_font));
-        }
-        else if (v.getId() == R.id.squiggle) {
+        } else if (v.getId() == R.id.squiggle) {
             result = Font.applyFont(inputText, getString(R.string.squiggle_font));
-        }
-        else if (v.getId() == R.id.upside_down) {
+        } else if (v.getId() == R.id.upside_down) {
             result = Font.applyFont(inputText, getString(R.string.upside_down_font));
-        }
-        else if (v.getId() == R.id.monospace) {
+        } else if (v.getId() == R.id.monospace) {
             result = Font.applyFont(inputText, getString(R.string.monospace_font));
         }
 
@@ -88,15 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
         else if (v.getId() == R.id.script_alternate) {
             result = Font.scriptAlternate(inputText, getString(R.string.superscript_font), getString(R.string.subscript_font));
-        }
-        else if (v.getId() == R.id.spaces) {
-//            Log.d("spaces call", "n: " + getNumber() + "  v: " + getVariance());
+        } else if (v.getId() == R.id.spaces) {
             result = Font.addSpaces(inputText, getNumber(), getVariance());
-        }
-        else if (v.getId() == R.id.periods) {
+        } else if (v.getId() == R.id.periods) {
             result = Font.addPeriods(inputText);
-        }
-        else if (v.getId() == R.id.sparkles) {
+        } else if (v.getId() == R.id.sparkles) {
             result = Font.addSparkles(inputText, getNumber(), getVariance());
         }
 
@@ -121,13 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         // initialize variance seekbar
-        SeekBar varianceSlider = (SeekBar)findViewById(R.id.varianceSlider);
-        ((TextView)findViewById(R.id.varianceView)).setText("Variance: 0");
+        SeekBar varianceSlider = (SeekBar) findViewById(R.id.varianceSlider);
+        ((TextView) findViewById(R.id.varianceView)).setText("Variance: 0");
         varianceSlider.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        ((TextView)findViewById(R.id.varianceView)).setText("Variance: " + Integer.toString(progress));
+                        ((TextView) findViewById(R.id.varianceView)).setText("Variance: " + Integer.toString(progress));
                     }
 
                     @Override
@@ -143,13 +123,13 @@ public class MainActivity extends AppCompatActivity {
         );
 
         // initialize number seekbar
-        SeekBar numberSlider = (SeekBar)findViewById(R.id.numberSlider);
-        ((TextView)findViewById(R.id.numberView)).setText("Number: 1");
+        SeekBar numberSlider = (SeekBar) findViewById(R.id.numberSlider);
+        ((TextView) findViewById(R.id.numberView)).setText("Number: 1");
         numberSlider.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        ((TextView)findViewById(R.id.numberView)).setText("Number: " + Integer.toString(progress));
+                        ((TextView) findViewById(R.id.numberView)).setText("Number: " + Integer.toString(progress));
                     }
 
                     @Override
