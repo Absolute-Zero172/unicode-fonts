@@ -43,4 +43,9 @@
     <string name="superscript_font">ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᑫʳˢᵗᵘᵛʷˣʸᶻᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻ</string>
     <string name="subscript_font">ₐ₆꜀ₔₑբ₉ₕᵢⱼₖₗₘₙₒₚqᵣₛₜᵤᵥwₓᵧ₂ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZ</string>
     <string name="normal_font">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="use_clipboard">Use Clipboard</string>
+    <string name="initial_variance">Variance: 0</string>
+    <string name="variance_template">"Variance: %d"</string>
+    <string name="initial_number">Number: 1</string>
+    <string name="number_template">"Number: %d"</string>
 </resources>

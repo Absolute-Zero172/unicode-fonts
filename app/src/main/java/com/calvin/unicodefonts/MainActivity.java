@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +17,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     public void click(View v) {
         Log.d("clicked button", v.getResources().getResourceName(v.getId()));
 
-        Switch clipboardSwitch = (Switch) (findViewById(R.id.clipboardToggle));
+        MaterialSwitch clipboardSwitch = (findViewById(R.id.clipboardToggle));
         boolean useClipboard = clipboardSwitch.isChecked();
 
-        EditText textEnter = (EditText) findViewById(R.id.textEnter);
+        EditText textEnter = findViewById(R.id.textEnter);
         String inputText;
         String result;
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            inputText = clipboardManager.getPrimaryClip().getItemAt(0).getText().toString();
+            inputText = Objects.requireNonNull(clipboardManager.getPrimaryClip()).getItemAt(0).getText().toString();
 
         } else {
             inputText = textEnter.getText().toString();
@@ -138,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         // initialize variance seekbar
-        SeekBar varianceSlider = (SeekBar) findViewById(R.id.varianceSlider);
-        ((TextView) findViewById(R.id.varianceView)).setText("Variance: 0");
+        SeekBar varianceSlider = findViewById(R.id.varianceSlider);
+        ((TextView) findViewById(R.id.varianceView)).setText(R.string.initial_variance);
         varianceSlider.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        ((TextView) findViewById(R.id.varianceView)).setText("Variance: " + Integer.toString(progress));
+                        ((TextView) findViewById(R.id.varianceView)).setText(String.format(getString(R.string.variance_template), progress));
                     }
 
                     @Override
@@ -160,13 +161,13 @@ public class MainActivity extends AppCompatActivity {
         );
 
         // initialize number seekbar
-        SeekBar numberSlider = (SeekBar) findViewById(R.id.numberSlider);
-        ((TextView) findViewById(R.id.numberView)).setText("Number: 1");
+        SeekBar numberSlider = findViewById(R.id.numberSlider);
+        ((TextView) findViewById(R.id.numberView)).setText(R.string.initial_number);
         numberSlider.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        ((TextView) findViewById(R.id.numberView)).setText("Number: " + Integer.toString(progress));
+                        ((TextView) findViewById(R.id.numberView)).setText(String.format(getString(R.string.number_template), progress));
                     }
 
                     @Override
@@ -182,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         // initialize clipboard toggle to true
-        ((Switch) (findViewById(R.id.clipboardToggle))).setChecked(true);
+        ((MaterialSwitch)findViewById(R.id.clipboardToggle)).setChecked(true);
 
     }
 }

@@ -9,8 +9,9 @@
 
     <EditText
         android:id="@+id/textEnter"
-        android:layout_width="0dp"
-        android:layout_height="96dp"
+        android:layout_width="416dp"
+        android:layout_height="80dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="text"
         android:text="@string/default_text"
@@ -18,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints=""
         tools:ignore="LabelFor" />
 
     <TableLayout
@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/bold"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -43,7 +43,7 @@
                 android:onClick="click"
                 android:text="@string/bold" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/italics"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                 android:onClick="click"
                 android:text="@string/italics" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/bold_italics"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -66,7 +66,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/gothic"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -74,7 +74,7 @@
                 android:onClick="click"
                 android:text="@string/gothic" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/gothic_bold"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -82,7 +82,7 @@
                 android:onClick="click"
                 android:text="@string/gothic_bold" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/strikethrough"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -97,7 +97,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/cursive"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -105,7 +105,7 @@
                 android:onClick="click"
                 android:text="@string/cursive" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/cursive_bold"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -113,7 +113,7 @@
                 android:onClick="click"
                 android:text="@string/cursive_bold" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/underline"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -127,7 +127,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/block"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -135,7 +135,7 @@
                 android:onClick="click"
                 android:text="@string/block" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/circle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -143,7 +143,7 @@
                 android:onClick="click"
                 android:text="@string/circle" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/square"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -157,7 +157,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/subscript"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -165,7 +165,7 @@
                 android:onClick="click"
                 android:text="@string/subscript" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/superscript"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -173,7 +173,7 @@
                 android:onClick="click"
                 android:text="@string/superscript" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/script_alternate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -187,7 +187,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/squiggle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -195,7 +195,7 @@
                 android:onClick="click"
                 android:text="@string/squiggle" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/upside_down"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -203,7 +203,7 @@
                 android:onClick="click"
                 android:text="@string/upside_down" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/monospace"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -217,7 +217,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/spaces"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -225,7 +225,7 @@
                 android:onClick="click"
                 android:text="@string/spaces" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/periods"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -233,7 +233,7 @@
                 android:onClick="click"
                 android:text="@string/add_periods" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/sparkles"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -248,7 +248,7 @@
             android:layout_height="129dp"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/letters"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -256,7 +256,7 @@
                 android:onClick="click"
                 android:text="@string/add_letters" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/capitals"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -264,7 +264,7 @@
                 android:onClick="click"
                 android:text="@string/capitals" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/uwu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -285,7 +285,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="0.0">
 
         <TableRow
             android:layout_width="match_parent"
@@ -333,16 +334,18 @@
 
     </TableLayout>
 
-    <Switch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/clipboardToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Use Clipboard"
+        android:layout_marginTop="8dp"
+        android:text="@string/use_clipboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package com.calvin.unicodefonts;
 
-import java.sql.PreparedStatement;
 import java.util.Random;
 
 public class Font {
@@ -34,72 +33,71 @@ public class Font {
             throw new IndexOutOfBoundsException("font data at zero");
         }
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
             int letterIdx = LETTERS.indexOf(inputString.substring(i, i + 1));
 
             if (letterIdx == -1) {
-                result += inputString.substring(i, i + 1);
+                result.append(inputString.charAt(i));
             } else {
                 String convertedLetter = fontData.substring(letterIdx * countPerCharacter, (letterIdx + 1) * countPerCharacter);
 
-                result += convertedLetter;
+                result.append(convertedLetter);
             }
         }
 
-        return result;
+        return result.toString();
     }
 
 
     public static String scriptAlternate(String inputString, String superscript, String subscript) {
         int mode = 0;
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
             String currentLetter = inputString.substring(i, i + 1);
 
-            if (mode == 0) result += applyFont(currentLetter, subscript);
-            else if (mode == 2) result += applyFont(currentLetter, superscript);
-            else result += currentLetter;
+            if (mode == 0) result.append(applyFont(currentLetter, subscript));
+            else if (mode == 2) result.append(applyFont(currentLetter, superscript));
+            else result.append(currentLetter);
 
             mode++;
             if (mode > 3) mode = 0;
         }
 
-        return result;
+        return result.toString();
     }
 
 
     public static String addSpaces(String inputString, int number, int variance) {
-        String result = "";
-        Random r = new Random();
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
-            result += inputString.substring(i, i + 1);
+            result.append(inputString.charAt(i));
 
             int spaceCount = getRandom(number, variance);
 
             for (int j = 0; j < spaceCount; j++) {
-                result += " ";
+                result.append(" ");
             }
         }
 
-        return result;
+        return result.toString();
     }
 
     public static String addPeriods(String inputString) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
             String current = inputString.substring(i, i + 1);
 
-            if (current.equals(" ") && i != 0 && !inputString.substring(i - 1, i).equals(" ")) {
-                result += ". ";
-            } else if (!current.equals(" ") && i != 0 && inputString.substring(i - 1, i).equals(" ")) {
-                result += current.toUpperCase();
+            if (current.equals(" ") && i != 0 && inputString.charAt(i - 1) != ' ') {
+                result.append(". ");
+            } else if (!current.equals(" ") && i != 0 && inputString.charAt(i - 1) == ' ') {
+                result.append(current.toUpperCase());
             } else {
-                result += current;
+                result.append(current);
             }
         }
 
@@ -111,14 +109,14 @@ public class Font {
 
         String sparkle = "✨";
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         int count = getRandom(number, variance);
 
         for (int i = 0; i < count; i++) {
-            result += sparkle;
+            result.append(sparkle);
         }
-        result += " " + inputString + " ";
+        result.append(" ").append(inputString).append(" ");
 
         count = number;
         if (variance > 0) {
@@ -127,33 +125,33 @@ public class Font {
         }
 
         for (int i = 0; i < count; i++) {
-            result += sparkle;
+            result.append(sparkle);
         }
 
-        return result;
+        return result.toString();
     }
 
     public static String addLetters(String inputString, int number, int variance) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
             String letter = inputString.substring(i, i + 1);
 
             if (!letter.equals(" ")) {
                 for (int j = 0; j < getRandom(number, variance); j++) {
-                    if (j == 0) output += letter;
-                    else output += letter.toLowerCase();
+                    if (j == 0) output.append(letter);
+                    else output.append(letter.toLowerCase());
                 }
             } else {
-                output += letter;
+                output.append(letter);
             }
         }
 
-        return output;
+        return output.toString();
     }
 
     public static String capitals(String inputString, int number, int variance) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         int idx = 0;
         int counter = 0;
@@ -167,13 +165,13 @@ public class Font {
 
             String letter = inputString.substring(idx, idx + 1);
 
-            output += capital ? letter.toUpperCase() : letter.toLowerCase();
+            output.append(capital ? letter.toUpperCase() : letter.toLowerCase());
             counter--;
             idx++;
 
         }
 
-        return output;
+        return output.toString();
     }
 
     public static String uwu(String inputString) {
@@ -183,33 +181,33 @@ public class Font {
         output = output.replace("R", "W");
 
 
-        String finalOutput = output.substring(0, 1);
+        StringBuilder finalOutput = new StringBuilder(output.substring(0, 1));
 
         for (int i = 1; i < output.length(); i++) {
             String letter = output.substring(i, i + 1);
             String previous = output.substring(i - 1, i);
 
             if (!isVowel(letter)) {
-                finalOutput += letter;
+                finalOutput.append(letter);
                 continue;
             }
             if (isVowel(previous)) {
-                finalOutput += letter;
+                finalOutput.append(letter);
                 continue;
             }
             if (previous.equals(" ")) {
-                finalOutput += letter;
+                finalOutput.append(letter);
                 continue;
             }
             if (previous.equalsIgnoreCase("w")) {
-                finalOutput += letter;
+                finalOutput.append(letter);
                 continue;
             }
 
-            finalOutput += "w";
-            finalOutput += letter;
+            finalOutput.append("w");
+            finalOutput.append(letter);
         }
 
-        return finalOutput;
+        return finalOutput.toString();
     }
 }
