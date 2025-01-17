@@ -1,17 +1,23 @@
 package com.calvin.unicodefonts;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,9 +32,28 @@ public class MainActivity extends AppCompatActivity {
     public void click(View v) {
         Log.d("clicked button", v.getResources().getResourceName(v.getId()));
 
+        Switch clipboardSwitch = (Switch) (findViewById(R.id.clipboardToggle));
+        boolean useClipboard = clipboardSwitch.isChecked();
+
         EditText textEnter = (EditText) findViewById(R.id.textEnter);
-        String inputText = textEnter.getText().toString();
+        String inputText;
         String result;
+
+        if (useClipboard) {
+            Log.d("using clipboard", "switch toggle indicates clipboard usage");
+
+            ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+
+            if (!clipboardManager.hasPrimaryClip()) {
+                Toast.makeText(this, "No Primary Clip", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            inputText = clipboardManager.getPrimaryClip().getItemAt(0).getText().toString();
+
+        } else {
+            inputText = textEnter.getText().toString();
+        }
 
 
         // font checks
@@ -92,6 +117,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         textEnter.setText(result);
+
+        if (useClipboard) {
+            ClipData resultToCopy = ClipData.newPlainText("unicode_font_applied", result);
+            ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            clipboardManager.setPrimaryClip(resultToCopy);
+        }
     }
 
     @Override
@@ -149,5 +180,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        // initialize clipboard toggle to true
+        ((Switch) (findViewById(R.id.clipboardToggle))).setChecked(true);
+
     }
 }
